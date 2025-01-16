@@ -1,7 +1,7 @@
 # Nova Filepond (Nova v5)
 
 A Nova field for uploading File, Image and Video using [Filepond](https://github.com/pqina/filepond).
-[Filepond](images/filepond.png)
+![Filepond](images/filepond.png)
 # Installation
 
 You can install the package via composer:
