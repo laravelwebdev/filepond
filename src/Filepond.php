@@ -234,7 +234,7 @@ class Filepond extends File
         };
     }
 
-    protected function resolveAttribute($resource, $attribute): Collection
+    protected function resolveAttribute($resource, string $attribute): mixed
     {
         $preview = $this->meta['preview'] ?? true;
 
@@ -249,8 +249,8 @@ class Filepond extends File
             $data = [
                 [
                     $attribute => $data,
-                    $this->originalNameColumn => parent::resolveAttribute($resource, $this->originalNameColumn),
-                    $this->sizeColumn => parent::resolveAttribute($resource, $this->sizeColumn),
+                    $this->originalNameColumn => $this->originalNameColumn ? parent::resolveAttribute($resource, $this->originalNameColumn) : null,
+                    $this->sizeColumn => $this->sizeColumn ? parent::resolveAttribute($resource, $this->sizeColumn) : null,
                 ],
             ];
 
