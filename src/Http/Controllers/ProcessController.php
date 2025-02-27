@@ -28,8 +28,17 @@ class ProcessController extends BaseController
         $attribute = $request->input('attribute');
         $resourceName = $request->input('resourceName');
         $file = $request->file($attribute);
-
-        if (! $file->isValid()) {
+        if (is_array($file)) {
+            foreach ($file as $f) {
+                if (! $f->isValid()) {
+                    return response()->json(
+                        data: [$attribute => [$f->getErrorMessage()]],
+                        status: 500,
+                    );
+                }
+            }
+        } else {
+            if (! $file->isValid()) {
 
             return response()->json(
                 data: [$attribute => [$file->getErrorMessage()]],
