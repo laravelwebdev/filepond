@@ -46,6 +46,7 @@ class ProcessController extends BaseController
             );
 
         }
+    }
 
         try {
 
